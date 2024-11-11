@@ -1,7 +1,10 @@
+RED = '\u001b[41m'
+BLUE = '\u001b[44m'
+END = '\u001b[0m'
+
 # cоздаем словарь с перечнем вещей и их параметрами (размер ячеек, очки выживания)
 # у персонажа заражение, так что сразу исключаем антидот ('antidot': (1, 10)) из словаря,
 # уменьшаем доступный размер пространства рюкзака на 1 ячейку: 8 - 1 = 7
-
 stuffdict = {'rifle': (3, 25),
              'pistol': (2, 15),
              'ammo': (2, 15),
@@ -67,21 +70,28 @@ def get_selected_items_list(stuffdict):
 
 
 if __name__ == "__main__":
-    # inv_size = 7 
-    # max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
-    # deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
-    # res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
-    # stuff = get_selected_items_list(stuffdict)
-    # for row in stuff:
-    #     print(" ".join(f"[{item}]" for item in row))
-    # print (f"\nИтоговые очки выживания: {res_points}")
+    print (f"\n{BLUE}Вариант с инвентарем в 8 ячеек (наличие антидота обязательно):{END}\n")
+    inv_size = 7 
+    max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
+    deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
+    res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
+    stuff = get_selected_items_list(stuffdict)
+    for row in stuff:
+        print(" ".join(f"[{item}]" for item in row))
+    print (f"\nИтоговые очки выживания: {res_points}\n")
     
-    # # для инвентаря размером 7 ячеек
-    # inv_size = 6
-    # max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
-    # deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
-    # res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
-    # stuff = get_selected_items_list(stuffdict)
-    # # for row in stuff:
-    # #     print(" ".join(f"[{item}]" for item in row))
-    # print (f"\nИтоговые очки выживания: {res_points}")
+# для инвентаря размером 7 ячеек
+    print (f"\n{BLUE}Дополнительный вариант с рюкзаком в 7 ячеек (наличие антидота обязательно):{END} \n")
+    inv_size = 6
+    max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
+    deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
+    res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
+    stuff = get_selected_items_list(stuffdict)
+    for row in stuff:
+        print(" ".join(f"[{item}]" for item in row))
+    print (f"\nИтоговые очки выживания: {res_points}\n")
+
+    if res_points > 0:
+        print ("Поздравляем, вы избежали зомби-ужина! Полный инвентарь — залог выживания!")
+    else:
+        print (f"{RED}Рюкзак мал, а аппетит у зомби велик. Подумай об этом в следующий раз.{END}")
