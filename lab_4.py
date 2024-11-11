@@ -15,8 +15,6 @@ stuffdict = {'rifle': (3, 25),
              'crossbow': (2, 20)
              }
 
-
-inv_size = 7 
 n = len(stuffdict)
 
 def get_size_and_point(stuffdict):
@@ -69,11 +67,21 @@ def get_selected_items_list(stuffdict):
 
 
 if __name__ == "__main__":
-    max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
-    deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
-    res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
-    stuff = get_selected_items_list(stuffdict)
-    for row in stuff:
-        print(" ".join(f"[{item}]" for item in row))
-    print (f"\nИтоговые очки выживания: {res_points}")
-
+    # inv_size = 7 
+    # max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
+    # deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
+    # res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
+    # stuff = get_selected_items_list(stuffdict)
+    # for row in stuff:
+    #     print(" ".join(f"[{item}]" for item in row))
+    # print (f"\nИтоговые очки выживания: {res_points}")
+    
+    # # для инвентаря размером 7 ячеек
+    # inv_size = 6
+    # max_points_of_survive = (get_memo_table(stuffdict)[0][-1][-1]+10) # c антидотом, ,без 10 начальных очков
+    # deduct_points = ALL_ITEMS_POINTS - max_points_of_survive #количество очков вычета
+    # res_points = max_points_of_survive + 10 - deduct_points # с учетом первоначальных 10 баллов 
+    # stuff = get_selected_items_list(stuffdict)
+    # # for row in stuff:
+    # #     print(" ".join(f"[{item}]" for item in row))
+    # print (f"\nИтоговые очки выживания: {res_points}")
